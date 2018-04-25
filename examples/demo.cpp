@@ -1,5 +1,5 @@
 #include <iostream>
-#include "DBLImage.cpp"
+#include "DBLImage.hpp"
 
 using namespace std;
 
