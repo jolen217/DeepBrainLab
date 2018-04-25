@@ -1,9 +1,10 @@
 #include <iostream>
+#include "DBLImage.cpp"
 
 using namespace std;
 
 int main() {
-    cout << "Hello DeepBrainLab" << endl;
+    cout << "PI = " << PI << endl;
 
     return 0;
 }
