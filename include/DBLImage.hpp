@@ -19,7 +19,7 @@
 
 namespace dbl {
 
-#define PI 3.1415926535
+#define PI 3.141592653589793
 
 typedef unsigned char uint8;
 
