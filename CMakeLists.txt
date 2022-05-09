@@ -4,7 +4,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 if (POLICY CMP0048)
     cmake_policy(SET CMP0048 NEW)
 endif (POLICY CMP0048)
+
 project(DBL VERSION 1.0)
-include_directories(include)
-file(GLOB SOURCES "src/*.cpp" "examples/*.cpp")
-add_executable(demo.x ${SOURCES})
+
+add_subdirectory(infra)
+
+file(GLOB_RECURSE SRC_FILES "examples/*.cpp")
+add_executable(demo.x ${SRC_FILES})
+target_link_libraries(demo.x PUBLIC infra)
