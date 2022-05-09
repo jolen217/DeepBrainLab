@@ -9,6 +9,6 @@ project(DBL VERSION 1.0)
 
 add_subdirectory(infra)
 
-file(GLOB_RECURSE SRC_FILES "examples/*.cpp")
+file(GLOB_RECURSE SRC_FILES "samples/*.cpp")
 add_executable(demo.x ${SRC_FILES})
 target_link_libraries(demo.x PUBLIC infra)
