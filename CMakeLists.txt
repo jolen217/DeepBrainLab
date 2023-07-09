@@ -24,4 +24,5 @@ message(STATUS "    libraries: ${OpenCV_LIBS}")
 message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
 
 add_executable(demo.x ${SRC_FILES})
+target_include_directories(demo.x PUBLIC ${OpenCV_INCLUDE_DIRS})
 target_link_libraries(demo.x PUBLIC infra PRIVATE ${OpenCV_LIBS})
