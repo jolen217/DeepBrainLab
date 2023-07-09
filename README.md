@@ -1,7 +1,7 @@
 # DeepBrainLab
 This is a library for brain science. 
 
-# Reference
+## Reference
 - [How to support OpenCV by C++ IntelliSense/autocomplete of OpenCV](https://github.com/microsoft/vscode-cpptools/issues/9900)
 
 ## Contributing
