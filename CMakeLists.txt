@@ -8,9 +8,6 @@ endif (POLICY CMP0048)
 project(DBL VERSION 1.0.0)
 configure_file(version.h.in version.h)
 
-add_subdirectory(infra)
-add_subdirectory(samples)
-
 find_package(OpenCV REQUIRED)
 
 # If the package has been found, several variables will
@@ -22,3 +19,6 @@ message(STATUS "    config: ${OpenCV_DIR}")
 message(STATUS "    version: ${OpenCV_VERSION}")
 message(STATUS "    libraries: ${OpenCV_LIBS}")
 message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
+
+add_subdirectory(infra)
+add_subdirectory(samples)

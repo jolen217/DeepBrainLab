@@ -4,3 +4,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(nms_demo.x nms_demo.cpp)
 target_include_directories(nms_demo.x PUBLIC ${PROJECT_BINARY_DIR})
+
+add_executable(video_demo.x video_demo.cpp)
+target_link_libraries(video_demo.x PUBLIC ${OpenCV_LIBS})
+target_include_directories(video_demo.x PUBLIC ${PROJECT_BINARY_DIR} ${OpenCV_INCLUDE_DIRS})
