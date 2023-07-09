@@ -5,7 +5,8 @@ if (POLICY CMP0048)
     cmake_policy(SET CMP0048 NEW)
 endif (POLICY CMP0048)
 
-project(DBL VERSION 1.0)
+project(DBL VERSION 1.0.0)
+configure_file(version.h.in version.h)
 
 add_subdirectory(infra)
 
@@ -24,5 +25,5 @@ message(STATUS "    libraries: ${OpenCV_LIBS}")
 message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
 
 add_executable(demo.x ${SRC_FILES})
-target_include_directories(demo.x PUBLIC ${OpenCV_INCLUDE_DIRS})
+target_include_directories(demo.x PUBLIC ${PROJECT_BINARY_DIR} ${OpenCV_INCLUDE_DIRS})
 target_link_libraries(demo.x PUBLIC infra PRIVATE ${OpenCV_LIBS})
