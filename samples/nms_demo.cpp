@@ -9,8 +9,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include "opencv2/opencv.hpp"
-#include "DBLImage.hpp"
 
 using namespace std;
 
@@ -38,7 +36,7 @@ double IoU(BBox bbox1, BBox bbox2) {
     return inter_area / (bbox1.w*bbox1.h + bbox2.w*bbox2.h - inter_area);
 }
 
-vector<BBox> NMS(vector<BBox>& v_bbox, double th_conf) {
+vector<BBox> NMS(vector<BBox>& v_bbox, double th_iou) {
     int len = v_bbox.size();
     if (len == 0) return v_bbox;
 
@@ -48,7 +46,7 @@ vector<BBox> NMS(vector<BBox>& v_bbox, double th_conf) {
     for (int i = 0; i < len; i++) {
         if (del[i]) continue;
         for (int j = i+1; j < len; j++) {
-            if (!del[j] && IoU(v_bbox[i], v_bbox[j]) > th_conf) del[j] = true;
+            if (!del[j] && IoU(v_bbox[i], v_bbox[j]) > th_iou) del[j] = true;
         }
     }
     for (int i = 0; i < len; i++) {
@@ -59,8 +57,6 @@ vector<BBox> NMS(vector<BBox>& v_bbox, double th_conf) {
 }
 
 int main() {
-    cout << "PI = " << PI << endl;
-
     vector<BBox> v_bbox;
     v_bbox.push_back(BBox(0,0,3,3,0.9));
     // t6: {0,0,3,3,0.9}, {0,1,3,2,0.4}
